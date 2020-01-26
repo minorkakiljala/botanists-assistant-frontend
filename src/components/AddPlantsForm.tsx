@@ -46,27 +46,36 @@ const AddPlantsForm = (props: Props) => {
   };
 
   return (
-    <form className="AddPlantsForm" onSubmit={handleSubmit}>
+    <div className="AddPlantsForm">
       <h2>Add a new plant</h2>
-      <div className="AddPlantsForm-FormInput">
-        <label className="AddPlantsForm-InputLabel">Name</label>
-        <input type="text" onChange={handleChange} id="name" />
-      </div>
-      <div className="AddPlantsForm-FormInput">
-        <label className="AddPlantsForm-InputLabel">
-          Days between watering
-        </label>
-        <input
-          id="name"
-          type="range"
-          min="0"
-          max="30"
-          defaultValue={formState.daysToWater}
-          onChange={handleChange}
-        />
-      </div>
-      <button onClick={handleSubmit}>Add plant</button>
-    </form>
+      <form className="AddPlantsForm-Form" onSubmit={handleSubmit}>
+        <div className="AddPlantsForm-FormInput">
+          <label className="AddPlantsForm-InputLabel">Name</label>
+          <input
+            type="text"
+            onChange={handleChange}
+            id="name"
+            value={formState.name}
+          />
+        </div>
+        <div className="AddPlantsForm-FormInput">
+          <label className="AddPlantsForm-InputLabel">
+            Days between watering
+          </label>
+          <input
+            id="name"
+            type="range"
+            min="0"
+            max="30"
+            value={formState.daysToWater}
+            onChange={handleChange}
+          />
+        </div>
+        <button className="AddPlantsForm-Button" onClick={handleSubmit}>
+          Add plant
+        </button>
+      </form>
+    </div>
   );
 };
 

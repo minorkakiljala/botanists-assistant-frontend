@@ -1,14 +1,36 @@
 .AddPlantsForm {
-  border: 3px dotted var(--color-green);
+  width: 100%;
+}
+
+.AddPlantsForm-Form {
+  border: 3px solid var(--color-green);
   padding: 20px;
   border-radius: 10px;
-  width: 100%;
 }
 
 .AddPlantsForm > h2 {
   display: block;
   text-align: left;
   width: 100%;
+  margin-bottom: 20px;
+}
+
+.AddPlantsForm-Button {
+  color: var(--color-green);
+  background: #fff;
+  border: 2px solid var(--color-green);
+  border-radius: 5px;
+  padding: 5px 15px;
+  box-shadow: var(--box-shadow);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.AddPlantsForm-Button:hover {
+  background: var(--color-green);
+  color: #000;
 }
 
 .AddPlantsForm-FormInput {
@@ -32,6 +54,6 @@
 .AddPlantsForm-FormInput > input[type='text'] {
   border: 0;
   border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: var(--box-shadow);
   padding: 5px;
 }

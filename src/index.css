@@ -2,6 +2,7 @@
   --color-green: #05c46b;
   --color-yellow: #ffd32a;
   --color-red: #ff3f34;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 body {
@@ -16,6 +17,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+*,
+all {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
 }
 
 code {

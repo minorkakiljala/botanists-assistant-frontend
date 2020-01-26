@@ -1,17 +1,12 @@
 import cuid from 'cuid';
-
-const PLANT_STORAGE_KEY = 'plantStorageKey';
+import {
+  getPlantsFromStorage,
+  setPlantsToStorage
+} from '../utils/localStorage';
 
 const apiClient: ApiClient = {
   getAllPlants: () => {
-    return new Promise(resolve => {
-      const plants = localStorage.getItem(PLANT_STORAGE_KEY);
-      if (plants) {
-        const plantArray: Plant[] = JSON.parse(plants);
-        return resolve(plantArray);
-      }
-      return resolve([] as Plant[]);
-    }).catch(err =>
+    return getPlantsFromStorage().catch(err =>
       console.error(
         'An error happened with fetching plants from localStorage',
         err
@@ -27,14 +22,11 @@ const apiClient: ApiClient = {
       addedDateTime: new Date()
     };
     return new Promise(resolve => {
-      const plants = localStorage.getItem(PLANT_STORAGE_KEY);
-      if (!plants) {
-        localStorage.setItem(PLANT_STORAGE_KEY, JSON.stringify([newPlant]));
-        return newPlant;
-      }
-      const newPlants = [...JSON.parse(plants), newPlant];
-      localStorage.setItem(PLANT_STORAGE_KEY, JSON.stringify(newPlants));
-      return newPlant;
+      return getPlantsFromStorage().then(result => {
+        const newPlants = [...result, newPlant];
+        setPlantsToStorage(newPlants);
+        resolve(newPlants);
+      });
     });
   }
 };
