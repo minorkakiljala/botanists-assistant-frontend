@@ -1,5 +1,6 @@
 import * as React from 'react';
 import apiClient from '../api/localClient';
+// import apiClient from '../api/remoteClient';
 
 import './PlantList.css';
 import PlantCard from './PlantCard';
@@ -16,6 +17,8 @@ const PlantList = (props: Props) => {
   const [plants, setPlants] = React.useState(initialPlants);
   const [error, setError] = React.useState(false);
 
+  // React useEffect is a React-Hook for handling asynchronous events with side effects
+  // here we use it to fetch data, then set that data to the react-components internal state
   React.useEffect(() => {
     console.log('Fetching all plants');
     apiClient
@@ -27,6 +30,7 @@ const PlantList = (props: Props) => {
       })
       .finally(() => setRefreshing(false));
   }, [refreshing]);
+
   return (
     <section className="PlantList">
       <h2>My plants</h2>
@@ -37,6 +41,7 @@ const PlantList = (props: Props) => {
         </p>
       )}
       {refreshing && <p>Fetching all plants...</p>}
+      {error && <p>Something went wrong while fetching plants...</p>}
       <div className="PlantList-Plants">
         {plants.map(plant => (
           <PlantCard key={plant.plantId} plant={plant} />

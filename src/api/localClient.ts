@@ -4,14 +4,20 @@ import {
   setPlantsToStorage
 } from '../utils/localStorage';
 
-const apiClient: ApiClient = {
+// The local client provides functionality for interacting with a browsers local storage
+// the functions here are built to match those of the remote client for the sake of simplicity.
+
+interface LocalClient extends ApiClient {}
+
+const apiClient: LocalClient = {
   getAllPlants: () => {
-    return getPlantsFromStorage().catch(err =>
+    return getPlantsFromStorage().catch(err => {
       console.error(
         'An error happened with fetching plants from localStorage',
         err
-      )
-    );
+      );
+      return err;
+    });
   },
   createPlant: (name: string, daysToWait: number) => {
     const newPlant: Plant = {
@@ -25,7 +31,7 @@ const apiClient: ApiClient = {
       return getPlantsFromStorage().then(result => {
         const newPlants = [...result, newPlant];
         setPlantsToStorage(newPlants);
-        resolve(newPlants);
+        return resolve(newPlants);
       });
     });
   }

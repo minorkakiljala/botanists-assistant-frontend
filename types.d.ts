@@ -6,10 +6,7 @@ declare interface Plant {
   addedDateTime: Date;
 }
 
-declare type RequestStatus = '' | 'PENDING' | 'FAILURE' | 'DONE';
-
 declare interface ApiClient {
-  getAllPlants: () => Promise<any>;
+  getAllPlants: () => Promise<Plant[]>;
   createPlant: (name: string, daysToWait: number) => Promise<any>;
-  removePlant?: (id: string) => Promise<any>;
 }

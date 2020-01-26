@@ -1,6 +1,12 @@
 import { apiUrl } from '../config';
 
-const apiClient: ApiClient = {
+// The remote client provides functionality for interacting with a remote server using javascripts native fetch.
+
+interface RemoteClient extends ApiClient {
+  removePlant?: (id: string) => Promise<any>;
+}
+
+const apiClient: RemoteClient = {
   getAllPlants: () => {
     return fetch(`${apiUrl}/v1/plants`)
       .then(response => response.json())
