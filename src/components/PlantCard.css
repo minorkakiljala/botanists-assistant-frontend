@@ -4,7 +4,8 @@
   background: #fff;
   border-radius: 5px;
   color: black;
-  width: 170px;
+  width: 200px;
+  height: 180px;
   margin: 5px;
   text-align: left;
 }
@@ -28,6 +29,7 @@
   margin-top: 5px;
   padding-top: 10px;
 }
+
 .PlantCard-Value {
   font-weight: 600;
   font-size: 17px;

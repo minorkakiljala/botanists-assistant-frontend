@@ -1,6 +1,6 @@
 import * as React from 'react';
-import apiClient from '../api/localClient';
-// import apiClient from '../api/remoteClient';
+// import apiClient from '../api/localClient';
+import apiClient from '../api/remoteClient';
 
 import './PlantList.css';
 import PlantCard from './PlantCard';
@@ -29,7 +29,7 @@ const PlantList = (props: Props) => {
         setError(true);
       })
       .finally(() => setRefreshing(false));
-  }, [refreshing]);
+  }, [refreshing, setRefreshing]);
 
   return (
     <section className="PlantList">

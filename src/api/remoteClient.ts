@@ -9,6 +9,10 @@ interface RemoteClient extends ApiClient {
 const apiClient: RemoteClient = {
   getAllPlants: () => {
     return fetch(`${apiUrl}/v1/plants`)
+      .then(response => {
+        console.log('Response', response);
+        return response;
+      })
       .then(response => response.json())
       .catch(err =>
         console.error('Error happened fetching data from remote backend:', err)

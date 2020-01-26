@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './AddPlantsForm.css';
-import apiClient from '../api/localClient';
-// import apiClient from '../api/remoteClient';
+// import apiClient from '../api/localClient';
+import apiClient from '../api/remoteClient';
 
 interface Props {
   setRefreshing: (value: boolean) => void;
@@ -61,10 +61,10 @@ const AddPlantsForm = (props: Props) => {
         </div>
         <div className="AddPlantsForm-FormInput">
           <label className="AddPlantsForm-InputLabel">
-            Days between watering
+            Days between watering: ({formState.daysToWater})
           </label>
           <input
-            id="name"
+            id="daysToWater"
             type="range"
             min="0"
             max="30"

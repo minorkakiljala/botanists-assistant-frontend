@@ -3,22 +3,39 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.App-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 600px;
   max-width: 100%;
 }
 
-.App--DarkMode {
-  background: #000;
+.App-DarkModeToggle {
+  cursor: pointer;
 }
 
-.App--DarkMode * {
+.App-DarkModeToggle:hover {
+  color: #000;
+}
+
+.App--DarkMode .App-DarkModeToggle:hover {
   color: #fff;
 }
 
-.App--DarkMode button {
-  color: white;
-  background: black;
-  border: 2px solid #fff;
+.App--DarkMode {
+  background: #1e272e;
+}
+
+.App--DarkMode h1,
+.App--DarkMode h2,
+.App--DarkMode label {
+  color: #fff;
 }
 
 .App-header {

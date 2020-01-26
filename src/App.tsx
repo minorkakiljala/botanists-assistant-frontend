@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPlantsForm from './components/AddPlantsForm';
-import { IoMdFlower } from 'react-icons/io';
+import { IoMdFlower, IoMdMoon, IoMdSunny } from 'react-icons/io';
 import PlantList from './components/PlantList';
 
 import './App.css';
@@ -14,15 +14,32 @@ const App: React.FC = () => {
   };
   return (
     <div className={`App ${darkMode ? 'App--DarkMode' : ''}`}>
-      <header className="App-header">
-        <IoMdFlower color="var(--color-green)" />
-        <h1 className="App-title">Botanists Assistant</h1>
-      </header>
-      <PlantList
-        setRefreshing={(value: boolean) => handleRefresh(value)}
-        refreshing={refreshing}
-      />
-      <AddPlantsForm setRefreshing={(value: boolean) => handleRefresh(value)} />
+      <div className="App-Container">
+        <header className="App-header">
+          <IoMdFlower color="var(--color-green)" />
+          <h1 className="App-title">Botanists Assistant</h1>
+          {darkMode ? (
+            <IoMdSunny
+              color="var(--color-yellow)"
+              className="App-DarkModeToggle"
+              onClick={() => setDarkMode(false)}
+            />
+          ) : (
+            <IoMdMoon
+              color="var(--color-yellow)"
+              className="App-DarkModeToggle"
+              onClick={() => setDarkMode(true)}
+            />
+          )}
+        </header>
+        <PlantList
+          setRefreshing={(value: boolean) => handleRefresh(value)}
+          refreshing={refreshing}
+        />
+        <AddPlantsForm
+          setRefreshing={(value: boolean) => handleRefresh(value)}
+        />
+      </div>
     </div>
   );
 };

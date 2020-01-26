@@ -17,7 +17,7 @@
 
 .AddPlantsForm-Button {
   color: var(--color-green);
-  background: #fff;
+  background: transparent;
   border: 2px solid var(--color-green);
   border-radius: 5px;
   padding: 5px 15px;
@@ -55,5 +55,6 @@
   border: 0;
   border-radius: 2px;
   box-shadow: var(--box-shadow);
-  padding: 5px;
+  padding: 10px;
+  font-size: 15px;
 }

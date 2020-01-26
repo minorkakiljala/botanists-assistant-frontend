@@ -17,7 +17,9 @@ const PlantCard = (props: Props) => {
       <p className="PlantCard-Label">Watered</p>
       <p className="PlantCard-Value">{plant.lastWatered || 'Never'}</p>
       <p className="PlantCard-Label">Days between</p>
-      <p className="PlantCard-Value">{plant.daysToWait}</p>
+      <p className="PlantCard-Value">
+        {plant.daysToWait} day{plant.daysToWait == 1 ? '' : 's'}
+      </p>
     </div>
   );
 };
