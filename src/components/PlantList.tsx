@@ -5,7 +5,7 @@ interface Props {}
 const PlantList = (props: Props) => {
   return (
     <section>
-      <h2>My plants:</h2>
+      <h2>My plants</h2>
     </section>
   );
 };

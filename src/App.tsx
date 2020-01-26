@@ -1,15 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import AddPlantsForm from './components/AddPlantsForm';
-import Icon from 'react-icons';
+import { IoMdFlower } from 'react-icons/io';
+import PlantList from './components/PlantList';
 
 const App: React.FC = () => {
+  const [darkMode, setDarkMode] = React.useState(false);
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'App--DarkMode' : ''}`}>
       <header className="App-header">
-        <Icon />
+        <IoMdFlower color="var(--color-green)" />
+        <h1 className="App-title">Botanists Assistant</h1>
       </header>
+      <PlantList />
       <AddPlantsForm />
     </div>
   );

@@ -4,3 +4,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.App--DarkMode {
+  background: #000;
+}
+
+.App--DarkMode * {
+  color: #fff;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.App-header > * {
+  font-size: 30px;
+  padding: 10px;
+}
