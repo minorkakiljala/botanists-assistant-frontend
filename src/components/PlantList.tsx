@@ -1,6 +1,5 @@
 import * as React from 'react';
-// import apiClient from '../api/localClient';
-import apiClient from '../api/remoteClient';
+import apiClient from '../api';
 
 import './PlantList.css';
 import PlantCard from './PlantCard';
