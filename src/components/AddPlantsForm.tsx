@@ -1,6 +1,10 @@
 import * as React from 'react';
+import './AddPlantsForm.css';
+import apiClient from '../api/localClient';
 
-interface Props {}
+interface Props {
+  setRefreshing: (value: boolean) => void;
+}
 
 interface FormState {
   name: string;
@@ -13,6 +17,7 @@ const initialForm: FormState = {
 };
 
 const AddPlantsForm = (props: Props) => {
+  const { setRefreshing } = props;
   const [formState, setFormState] = React.useState(initialForm);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,15 +25,37 @@ const AddPlantsForm = (props: Props) => {
     setFormState({ ...formState, [id]: value });
   };
 
+  const handleSubmit = (event: React.SyntheticEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+    const { name, daysToWater } = formState;
+
+    if (!name || name.length < 3) {
+      return alert(
+        'The name for the plant is too short, please make it longer than 3 characters'
+      );
+    }
+
+    return apiClient
+      .createPlant(name, daysToWater)
+      .then(() => setRefreshing(true))
+      .then(() => setFormState(initialForm))
+      .catch(err => {
+        console.error('An error happened adding a new plant', err);
+      });
+  };
+
   return (
-    <form>
+    <form className="AddPlantsForm" onSubmit={handleSubmit}>
       <h2>Add a new plant</h2>
-      <div className="FormInput">
-        <label>Name</label>
-        <input onChange={handleChange} id="name" />
+      <div className="AddPlantsForm-FormInput">
+        <label className="AddPlantsForm-InputLabel">Name</label>
+        <input type="text" onChange={handleChange} id="name" />
       </div>
-      <div className="FormInput">
-        <label>daysToWater</label>
+      <div className="AddPlantsForm-FormInput">
+        <label className="AddPlantsForm-InputLabel">
+          Days between watering
+        </label>
         <input
           id="name"
           type="range"
@@ -38,6 +65,7 @@ const AddPlantsForm = (props: Props) => {
           onChange={handleChange}
         />
       </div>
+      <button onClick={handleSubmit}>Add plant</button>
     </form>
   );
 };

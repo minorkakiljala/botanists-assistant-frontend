@@ -1,5 +1,6 @@
-const PLANT_STORAGE_KEY = 'plantStorageKey';
 import cuid from 'cuid';
+
+const PLANT_STORAGE_KEY = 'plantStorageKey';
 
 const apiClient: ApiClient = {
   getAllPlants: () => {
@@ -9,7 +10,7 @@ const apiClient: ApiClient = {
         const plantArray: Plant[] = JSON.parse(plants);
         return resolve(plantArray);
       }
-      resolve([] as Plant[]);
+      return resolve([] as Plant[]);
     }).catch(err =>
       console.error(
         'An error happened with fetching plants from localStorage',
