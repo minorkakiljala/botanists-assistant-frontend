@@ -4,6 +4,7 @@ declare interface Plant {
   daysToWait: number;
   lastWatered: Date | null;
   addedDateTime: Date;
+  timesWatered?: number;
 }
 
 declare interface ApiClient {

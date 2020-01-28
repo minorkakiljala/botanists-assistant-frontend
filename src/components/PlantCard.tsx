@@ -20,6 +20,11 @@ const PlantCard = (props: Props) => {
       <p className="PlantCard-Value">
         {plant.daysToWait} day{plant.daysToWait == 1 ? '' : 's'}
       </p>
+      <p className="PlantCard-Label">Times watered</p>
+      <p className="PlantCard-Value">{plant.timesWatered || 0}</p>
+      <div>
+      <p className="PlantCard-Label">asd</p>
+    </div>
     </div>
   );
 };
