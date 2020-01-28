@@ -9,3 +9,13 @@ It should be relatively simple to get things running straight away. The only thi
 ## On data-fetching and api calls
 
 This application provides two ways to store and fetch data persistently. First one is an adapter against local storage, the other with api calls to this [companion rest api](https://github.com/juliusrajala/plant-backend).
+
+## Improvements
+
+- Add some sort of authenticationt to make changes.
+- Make watering plants doable.
+- Make plants removable.
+- Track the number of times plants have been watered.
+- Draw a chart of watering times.
+
+- Use this base to build something completely different.
